@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign | Munchy's Malaysia</title>
+    <link rel="stylesheet" href="style.css"> <!-- Pastikan nama fail CSS betul -->
+
+    <style>
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+        .modal-box h2 {
+            color: #a00d1d;
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .modal-box p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 20px;
+            font-size: 30px; font-weight: bold;
+            color: #aaa; cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-btn:hover { color: #ff4d4d; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <h1>MUNCHY'S MALAYSIA</h1>
+            <p>Snack with Heart Campaign</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="campaign.html" class="active">Campaign</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="campaign-header-banner">
+      <div class="campaign-overlay">
+        <h2>Our Mission</h2>
+        <p>Every purchase of selected Munchy's biscuits contributes to helping schools in need by improving learning facilities, providing educational resources and supporting students' future.</p>
+      </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <h2>How It Works</h2>
+        <p class="section-desc">When you buy selected Munchy's biscuits, a portion of the sales will be donated to support schools in need across Malaysia. Your purchase helps provide better learning opportunities for children.</p>
+
+        <div class="how-it-works-container">
+            
+            <div class="card" onclick="openPopup('buy')">
+                <div class="card-icon">🛒</div>
+                <h3>Buy</h3>
+                <p>Purchase selected Munchy's biscuits.</p>
+            </div>
+
+            <div class="card" onclick="openPopup('donate')">
+                <div class="card-icon">❤️</div>
+                <h3>Donate</h3>
+                <p>Part of the sales will be donated.</p>
+            </div>
+
+            <div class="card" onclick="openPopup('support')">
+                <div class="card-icon">🤝</div>
+                <h3>Support</h3>
+                <p>Funds are distributed to schools.</p>
+            </div>
+
+            <div class="card" onclick="openPopup('impact')">
+                <div class="card-icon">🎓</div>
+                <h3>Impact</h3>
+                <p>Students enjoy better learning facilities.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closePopup()">&times;</span><h2 id="modalTitle">Tajuk</h2>
+            <p id="modalDescription">Maklumat lanjut...</p>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+       <p>This website is developed for educational purposes only. It is not the official website of Munchy's Malaysia.</p>
+       <p>©2026 Group Assignment</p>
+    </footer>
+
+    <script>
+    const popupData = {
+        buy: {
+            title: "🛒 Step 1: Buy & Enjoy!",
+            desc: "Find Munchy's promotional campaign packs at your nearest supermarket! Every single purchase directly contributes to our educational fund dedicated to supporting schools in need."
+        },
+        donate: {
+            title: "❤️ Step 2: Automatic Donation",
+            desc: "Don't worry, you don't have to pay extra! Munchy's will automatically channel a portion of the proceeds from every campaign pack sold straight into the school fund. Making charity effortless!"
+        },
+        support: {
+            title: "🤝 Step 3: Supporting Schools",
+            desc: "We collaborate closely with local schools to identify underserved and rural educational institutions that need immediate help. This includes upgrading classrooms, improving clean water facilities, and providing digital learning tools!"
+        },
+        impact: {
+            title: "🎓 Step 4: Real Impact",
+            desc: "Witness the transformation! These funds are fully utilized to build smart classrooms, restock libraries, and create a brighter, happier learning environment for our future leaders!"
+        }
+    };
+
+    function openPopup(type) {
+        const modal = document.getElementById('customModal');
+        document.getElementById('modalTitle').innerText = popupData[type].title;
+        document.getElementById('modalDescription').innerText = popupData[type].desc;
+        modal.style.display = 'flex'; // Paparkan modal menggunakan flexbox
+    }
+
+    function closePopup() {
+        document.getElementById('customModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('customModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+    </script>
+
+</body>
+</html>
